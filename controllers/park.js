@@ -1,5 +1,5 @@
 const express = require('express')
-const {Park, Ride} = require('../models')
+const {Park} = require('../models')
 
 
 

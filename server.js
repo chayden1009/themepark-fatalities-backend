@@ -21,9 +21,9 @@ app.use(express.json());
 app.use(cors());
 app.use(morgan("dev"));
 
-app.use('/park', parkRouter)
-app.use('/incident', incidentRouter)
-app.use('/ride', rideRouter)
+app.use('/parks', parkRouter)
+app.use('/incidents', incidentRouter)
+app.use('/rides', rideRouter)
 
 
 // test route
