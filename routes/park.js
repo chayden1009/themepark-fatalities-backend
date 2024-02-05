@@ -1,16 +1,24 @@
 const express = require('express')
 const router = express.Router()
 
+const peopleCtrl = require('../controllers/park')
+
 //ROUTES
 
-router.get("/", async (req, res) => {
-	res.status(200).json({message: "park index route"})
-});
+//park index
+router.get("/", parkCtrl.index) 
 
+//create park
+router.post("/", parkCtrl.create)
 
-router.post("/", async (req, res) =>  {
-	res.status(201).json({message: "park create route"})
-});
+// show park
+router.get("/:id", parkCtrl.show)
+
+// delete park
+router.delete("/:id", parkCtrl.delete)
+
+// update park
+router.put("/:id", parkCtrl.update)
 
 
 module.exports = router

@@ -7,8 +7,8 @@ const Schema = mongoose.Schema
 // MODELS
 ////////////////////////////////
 const IncidentSchema = new Schema({
-  name: {String, required: true},
-  date: {Date, required: true},
+  name: {type: String, required: true},
+  date: {type: Date, required: true},
   fatalities: {type: Number, min: 0},
   injuries: {type: Number, min: 0},
   description: {type: String, required: true},

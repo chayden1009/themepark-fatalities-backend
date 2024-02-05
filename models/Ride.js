@@ -4,12 +4,13 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema
 const { rideTypes } = require('../config/constants')
+const IncidentSchema = require('./Incident')
 ///////////////////////////////
 // MODELS
 ////////////////////////////////
 const RideSchema = new Schema({
-  name: {String, required: true},
-  type: {String, enum: rideTypes.map(rideType => rideType)},
+  name: {type: String, required: true},
+  type: {type: String, enum: rideTypes.map(rideType => rideType)},
   incidents: [IncidentSchema],
 },{timestamps: true});
 

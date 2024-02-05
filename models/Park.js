@@ -3,11 +3,12 @@
 ////////////////////////////////
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema
+const RideSchema = require('./Ride')
 ///////////////////////////////
 // MODELS
 ////////////////////////////////
 const ParkSchema = new Schema({
-  name: {String, required: true},
+  name: {type: String, required: true},
   address: String,
   rides: [RideSchema],
 },{timestamps: true});
