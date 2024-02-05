@@ -9,6 +9,7 @@ const Schema = mongoose.Schema
 const ParkSchema = new Schema({
   name: {type: String, required: true},
   address: String,
+  backgroundImage: String,
   rides: [{ type: Schema.Types.ObjectId, ref: 'Ride' }],
 },{timestamps: true});
 
