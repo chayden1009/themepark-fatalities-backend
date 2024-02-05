@@ -1,7 +1,6 @@
 const express = require('express')
 const router = express.Router()
-
-const peopleCtrl = require('../controllers/park')
+const parkCtrl = require('../controllers/park')
 
 //ROUTES
 
