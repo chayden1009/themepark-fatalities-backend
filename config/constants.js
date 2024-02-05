@@ -7,6 +7,7 @@ const rideTypes = [
     "Swing Ride",
     "Spinning Ride",
     "Water Slide",
+    "Other"
 ]
 
 module.exports = {
