@@ -5,19 +5,19 @@ const parkCtrl = require('../controllers/park')
 //ROUTES
 
 //park index
-router.get("/parks", parkCtrl.index) 
+router.get("/", parkCtrl.index) 
 
 //create park
-router.post("/parks", parkCtrl.create)
+router.post("/", parkCtrl.create)
 
 // show park
-router.get("/parks/:id", parkCtrl.show)
+router.get("/:id", parkCtrl.show)
 
 // delete park
-router.delete("/parks/:id", parkCtrl.delete)
+router.delete("/:id", parkCtrl.delete)
 
 // update park
-router.put("/parks/:id", parkCtrl.update)
+router.put("/:id", parkCtrl.update)
 
 
 module.exports = router
