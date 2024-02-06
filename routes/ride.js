@@ -1,5 +1,5 @@
 const express = require('express')
-const router = express.Router()
+const router = express.Router({ mergeParams: true })
 const rideCtrl = require('../controllers/ride')
 
 //ROUTES
@@ -11,13 +11,13 @@ router.get("/", rideCtrl.index)
 router.post("/", rideCtrl.create)
 
 // show ride
-router.get("/:id", rideCtrl.show)
+router.get("/:rideId", rideCtrl.show)
 
 // delete ride
-router.delete("/:id", rideCtrl.delete)
+router.delete("/:rideId", rideCtrl.delete)
 
 // update ride
-router.put("/:id", rideCtrl.update)
+router.put("/:rideId", rideCtrl.update)
 
 
 module.exports = router
