@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const parkCtrl = require('../controllers/park')
+const rideRouter = require('./ride')
+const incidentRouter = require('./incident')
 
 //ROUTES
 
@@ -18,6 +20,13 @@ router.delete("/:id", parkCtrl.delete)
 
 // update park
 router.put("/:id", parkCtrl.update)
+
+// for rides
+router.use('/:parkId/rides', rideRouter);
+
+// for incidents
+router.use('/:parkId/rides/:rideId', incidentRouter);
+
 
 
 module.exports = router

@@ -1,10 +1,11 @@
 const express = require('express')
 const {Ride} = require('../models')
-
+const {Park} = require('../models')
 
 const index = async (req, res, next) => {
     try {
-        res.json(await RTCIceCandidate.find({}))
+        const rides = await Ride.find().populate('incidents');
+        res.json(rides);
     } catch (error) {
         res.status(400).json(error)
     }
@@ -12,11 +13,20 @@ const index = async (req, res, next) => {
 
 const create = async (req, res, next) => {
     try {
-        res.json(await Ride.create(req.body))
+        const newRide = await Ride.create(req.body);
+
+        await Park.findByIdAndUpdate(
+            req.params.parkId, 
+            { $push: { rides: newRide._id } }, 
+            { new: true, safe: true, upsert: true }
+        );
+
+        res.json(newRide);
     } catch (error) {
-        res.status(400).json(error)
+        res.status(400).json(error);
     }
-}
+};
+
 
 const show = async (req, res, next) => {
     try {
@@ -34,7 +44,7 @@ const destroy = async (req, res, next) => {
     }
 }
 
-const update = async () => {
+const update = async (req, res, next) => {
     try {
         res.json(
             await Ride.findByIdAndUpdate(req.params.id, req.body, { new: true })

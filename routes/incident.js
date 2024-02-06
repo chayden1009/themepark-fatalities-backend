@@ -1,5 +1,5 @@
 const express = require('express')
-const router = express.Router()
+const router = express.Router({ mergeParams: true })
 const incidentCtrl = require('../controllers/incident')
 
 //ROUTES
@@ -11,13 +11,13 @@ router.get("/", incidentCtrl.index)
 router.post("/", incidentCtrl.create)
 
 // show incident
-router.get("/:id", incidentCtrl.show)
+router.get("/:incidentId", incidentCtrl.show)
 
 // delete incident
-router.delete("/:id", incidentCtrl.delete)
+router.delete("/:incidentId", incidentCtrl.delete)
 
 // update incident
-router.put("/:id", incidentCtrl.update)
+router.put("/:incidentId", incidentCtrl.update)
 
 
 module.exports = router
