@@ -9,8 +9,6 @@ const app = express();
 
 // import routers
 const parkRouter = require('./routes/park')
-const incidentRouter = require('./routes/incident')
-const rideRouter = require('./routes/ride')
 
 const cors = require("cors")
 const morgan = require("morgan")
@@ -22,9 +20,6 @@ app.use(cors());
 app.use(morgan("dev"));
 
 app.use('/parks', parkRouter)
-app.use('/incidents', incidentRouter)
-app.use('/rides', rideRouter)
-
 
 // test route
 app.get("/", (req, res) => {

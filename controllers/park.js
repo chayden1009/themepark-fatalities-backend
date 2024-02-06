@@ -5,7 +5,8 @@ const {Park} = require('../models')
 
 const index = async (req, res, next) => {
     try {
-        res.json(await Park.find({}))
+        const parks = await Park.find().populate('rides');
+        res.json(parks);
     } catch (error) {
         res.status(400).json(error)
     }

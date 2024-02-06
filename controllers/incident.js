@@ -34,7 +34,7 @@ const destroy = async (req, res, next) => {
     }
 }
 
-const update = async () => {
+const update = async (req, res, next) => {
     try {
         res.json(
             await Incident.findByIdAndUpdate(req.params.id, req.body, { new: true })
